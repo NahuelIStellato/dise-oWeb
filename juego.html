@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/juego.css">
+    <link rel="stylesheet" href="juego.js">
+    <title>Inicio</title>
+</head>
+<body>
+    <section class="top-nav">
+        <div>
+          <h3><a href="index.html">Inicio</a></h3>
+        </div>
+        <input id="menu-toggle" type="checkbox" />
+        <label class='menu-button-container' for="menu-toggle">
+        <div class='menu-button'></div>
+      </label>
+        <ul class="menu">
+          <li><a href="datosPersonales.html">Datos Personales</a></li>
+          <li><a href="educacion.html">Educación</a></li>
+          <li><a href="experiencias.html">Experiencía</a></li>
+          <li><a href="competencias.html">Competencias</a></li>
+          <li><a href="juego.html">Juego</a></li>
+        </ul>
+      </section>
+
+<!----------------------------------------------------------------------------------->
+
+    <section id="inicio" class="inicio">
+        <div class="contenido-banner">
+            <body>
+
+                <h1>Juego de Adivinanzas</h1>
+                <p>¡Adivina el número entre 1 y 10!</p>
+            
+                <input type="number" id="guess" placeholder="Tu respuesta">
+                <button onclick="checkGuess()">Comprobar</button>
+                <p id="result"></p>
+            
+                <script>
+                    // Generar un número aleatorio entre 1 y 10
+                    const secretNumber = Math.floor(Math.random() * 10) + 1;
+                    let attempts = 0;
+            
+                    function checkGuess() {
+                        // Obtener el valor ingresado por el usuario
+                        const userGuess = document.getElementById('guess').value;
+            
+                        // Incrementar el contador de intentos
+                        attempts++;
+            
+                        // Comprobar si la suposición es correcta
+                        if (userGuess == secretNumber) {
+                            document.getElementById('result').innerHTML = `¡Correcto! Has adivinado en ${attempts} intentos.`;
+                        } else {
+                            document.getElementById('result').innerHTML = 'Incorrecto. Inténtalo de nuevo.';
+                        }
+                    }
+                </script>
+            
+            </body>
+    </section>
+</body>
+</html>
